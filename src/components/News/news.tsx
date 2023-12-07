@@ -1,17 +1,20 @@
 import UserPhoto from "../UserPhoto/userPhoto";
+import NewsImage from "./NewsImage/newsImage";
 
 const News = () => {
     return (
-        <div className="w-full flex justify-center">
-            <div className="w-[450px] bg-slate-200 shadow-lg rounded-lg m-3">
+        <div className="w-[600px] min-h-[380px] rounded-sm m-3 relative overflow-hidden">
+            <div className="absolute h-full w-full">
+                <img className="w-full h-full object-cover object-center opacity-75" src="/images/news-wallpaper.jpg" />
+            </div>
+            <div className="relative z-10">
                 <div className="flex flex-row p-2">
-                    <UserPhoto width={20} height={20} />
-                    <p className="text-sm pl-2">@user_author</p>
+                    <UserPhoto width="20px" height="20px" imageURL="https://thinksport.com.au/wp-content/uploads/2020/01/avatar-.jpg"/>
+                    <a className="text-sm pl-2" href="#">@user_author</a>
                 </div>
-                <div className="w-60 h-44 m-auto rounded-lg overflow-hidden">
-                    <img className="object-cover object-center w-full h-full" src="https://img2.rtve.es/n/2464340?w=800&preview=1701688458019.jpg" />
-                </div>
-                <p className="text-base text-center p-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <NewsImage width="320px" height="180px" imageURL="https://img2.rtve.es/n/2464340?w=800&preview=1701688458019.jpg" />
+                <h2 className="pl-4 pt-2 font-semibold">Tremendo Descubrimiento: Pingüinos Políglotas en la Antártida</h2>
+                <p className="text-sm text-justify px-4 py-2">Un equipo de científicos descubre una nueva especie de pingüino capaz de hablar varios idiomas. Estos singulares pingüinos, apodados 'Polyglot Penguins', han sorprendido a la comunidad científica con su habilidad lingüística. Afirman haber encontrado una antigua 'escuela de idiomas' en la Antártida. Sin embargo, los expertos dudan de la veracidad de la noticia, calificándola como un posible engaño. La historia ha generado interés y escepticismo en igual medida</p>
             </div>
         </div>
     );

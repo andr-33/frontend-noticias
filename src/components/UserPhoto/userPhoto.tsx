@@ -1,15 +1,16 @@
 import React from "react";
 
 interface Props{
-    width: number,
-    height: number
+    width: string,
+    height: string
+    imageURL: string|undefined
 }
 
-const UserPhoto: React.FC<Props> =({width, height})=>{
+const UserPhoto: React.FC<Props> =({width, height, imageURL})=>{
     return(
-        <img style={{width: `${width}px`, height: `${height}px`}} 
+        <img style={{width: width, height: height}} 
             className="rounded-full" 
-            src="https://thinksport.com.au/wp-content/uploads/2020/01/avatar-.jpg"/>
+            src={imageURL}/>
     );
 };
 
