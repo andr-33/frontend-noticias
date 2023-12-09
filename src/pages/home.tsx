@@ -1,9 +1,13 @@
 import NewsContainer from "../components/NewsContainer/newsContainer";
-import RightSidebar from "../components/RightSideBar/rightSideBar";
+import LeftSidebar from "@/components/LeftSideBar/leftSideBar";
 
-const Home = () => {
+import React from "react";
+
+const Home: React.FC = () => {
+
     return (
         <main className="w-full h-screen flex flex-row bg-stone-100">
+            <LeftSidebar />
             <div className="grow overflow-y-hidden">
                 <div className="w-full flex justify-center pr-[10px]">
                     <h1 className="text-center text-6xl">The Homing Pigeon</h1>
@@ -11,7 +15,6 @@ const Home = () => {
                 </div>
                 <NewsContainer />
             </div>
-            <RightSidebar />
         </main>
     );
 };
