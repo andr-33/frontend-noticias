@@ -1,7 +1,7 @@
 import UserPhoto from "../UserPhoto/userPhoto";
 import NewsImage from "./NewsImage/newsImage";
 
-const News = () => {
+const News = ({ titulo, cuerpo }) => {
     return (
         <div className="w-[600px] min-h-[380px] rounded-sm m-3 relative overflow-hidden">
             <div className="absolute h-full w-full">
@@ -9,12 +9,12 @@ const News = () => {
             </div>
             <div className="relative z-10">
                 <div className="flex flex-row p-2">
-                    <UserPhoto width="20px" height="20px" imageURL="https://thinksport.com.au/wp-content/uploads/2020/01/avatar-.jpg"/>
+                    <UserPhoto width="20px" height="20px" imageURL="https://thinksport.com.au/wp-content/uploads/2020/01/avatar-.jpg" />
                     <a className="text-sm pl-2" href="#">@user_author</a>
                 </div>
                 <NewsImage width="320px" height="180px" imageURL="https://img2.rtve.es/n/2464340?w=800&preview=1701688458019.jpg" />
-                <h2 className="pl-4 pt-2 font-semibold">Tremendo Descubrimiento: Pingüinos Políglotas en la Antártida</h2>
-                <p className="text-sm text-justify px-4 py-2">Un equipo de científicos descubre una nueva especie de pingüino capaz de hablar varios idiomas. Estos singulares pingüinos, apodados 'Polyglot Penguins', han sorprendido a la comunidad científica con su habilidad lingüística. Afirman haber encontrado una antigua 'escuela de idiomas' en la Antártida. Sin embargo, los expertos dudan de la veracidad de la noticia, calificándola como un posible engaño. La historia ha generado interés y escepticismo en igual medida</p>
+                <h2 className="pl-4 pt-2 font-semibold">{titulo}</h2>
+                <p className="text-sm text-justify px-4 py-2">{cuerpo}</p>
             </div>
         </div>
     );
