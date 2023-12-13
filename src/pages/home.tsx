@@ -1,17 +1,17 @@
 import NewsContainer from "../components/NewsContainer/newsContainer";
 import LeftSidebar from "@/components/LeftSideBar/leftSideBar";
 import axios from "axios";
-
+import { NewsData } from '@/types/NewsType';
 import React, { useEffect, useState } from "react";
 
 const Home: React.FC = () => {
-    const [news, setNews] = useState();
+    const [Allnews, setAllNews] = useState<NewsData[] | undefined>();
 
     useEffect(() => {
         axios.get("https://localhost:7137/api/Noticias/News")
             .then(res => {
                 console.log(res.data);
-                setNews(res.data);
+                setAllNews(res.data);
             })
             .catch(err => console.log(err));
     }, [])
@@ -25,8 +25,8 @@ const Home: React.FC = () => {
                     <img className="w-16 h-16" src="/images/logo.png" />
                 </div>
                 {
-                    news && (
-                        <NewsContainer AllNews={news} />
+                    Allnews && (
+                        <NewsContainer AllNews={Allnews} />
                     )
                 }
             </div>

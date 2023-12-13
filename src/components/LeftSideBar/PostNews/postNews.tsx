@@ -5,19 +5,27 @@ import AddImage from "../AddImage/addImage";
 import React, { useState, FormEvent } from "react";
 import axios from "axios";
 import { Loader2 } from "lucide-react";
-
+import { Textarea } from "@/components_shad/ui/textarea";
+import { NewsData } from "@/types/NewsType";
 
 const PostNews: React.FC = () => {
 
-    const initialNewsData = {
-        titulo: "",
-        cuerpo: "",
+    const initialNewsData: NewsData = {
+        title: "",
+        body: "",
     }
-    const [newsData, setNewsData] = useState(initialNewsData);
-
+    const [newsData, setNewsData] = useState<NewsData>(initialNewsData);
     const [isWaiting, setIsWaiting] = useState<boolean>(false);
 
-    const handleChange = (event: FormEvent<HTMLInputElement>) => {
+    const handleChangeInput = (event: FormEvent<HTMLInputElement>) => {
+        const { name, value } = event.currentTarget;
+        setNewsData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    };
+
+    const handleChangeTextArea = (event: FormEvent<HTMLTextAreaElement>) => {
         const { name, value } = event.currentTarget;
         setNewsData(prev => ({
             ...prev,
@@ -46,21 +54,25 @@ const PostNews: React.FC = () => {
             <Label className="text-lg">Publica una nueva noticia</Label>
             <div className="w-full px-2 pb-2">
                 <Label>Titulo:</Label>
-                <Input type="text" name="titulo" className="mt-1"
-                    placeholder="Tremendo descubrimiento..." onChange={handleChange}>
-                    {newsData.titulo}
+                <Input type="text" name="title" className="mt-1"
+                    placeholder="Tremendo descubrimiento..." onChange={handleChangeInput}>
+                    {newsData.title}
                 </Input>
             </div>
             <div className="w-full px-2 pb-2">
                 <Label>Noticia:</Label>
-                <Input type="text" name="cuerpo" className="resize-none h-40 mt-1" onChange={handleChange}>
-                    {newsData.cuerpo}
-                </Input>
+                <Textarea name="body" className="resize-none h-40 mt-1" onChange={handleChangeTextArea}>
+                    {newsData.body}
+                </Textarea>
             </div>
             <div className="w-full px-2">
                 <AddImage />
             </div>
-            <Button type="submit" disabled={isWaiting}>Publicar
+            <Button type="submit" disabled={isWaiting}>
+                {isWaiting ?
+                    (<Loader2 className="w-5 h-5 animate-spin text-stone-100" />) :
+                    ("Registrarse")
+                }
             </Button>
         </form>
     );
