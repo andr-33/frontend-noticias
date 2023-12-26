@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "@/components_shad/ui/button";
 import { Menu, X } from 'lucide-react';
 import UserPhoto from "../UserPhoto/userPhoto";
-import PostNews from "./PostNews/postNews";
+import PostNews from "../FormPostNews/postNews";
 
 const LeftSidebar: React.FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);

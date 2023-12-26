@@ -1,7 +1,7 @@
 import { Button } from "@/components_shad/ui/button";
 import { Input } from "@/components_shad/ui/input";
 import { Label } from "@/components_shad/ui/label";
-import AddImage from "../AddImage/addImage";
+import AddImage from "../LeftSideBar/AddImage/addImage";
 import React, { useState, FormEvent } from "react";
 import axios from "axios";
 import { Loader2 } from "lucide-react";
@@ -55,15 +55,11 @@ const PostNews: React.FC = () => {
             <div className="w-full px-2 pb-2">
                 <Label>Titulo:</Label>
                 <Input type="text" name="title" className="mt-1"
-                    placeholder="Tremendo descubrimiento..." onChange={handleChangeInput}>
-                    {newsData.title}
-                </Input>
+                    placeholder="Tremendo descubrimiento..." onChange={handleChangeInput} value={newsData.title} />
             </div>
             <div className="w-full px-2 pb-2">
                 <Label>Noticia:</Label>
-                <Textarea name="body" className="resize-none h-40 mt-1" onChange={handleChangeTextArea}>
-                    {newsData.body}
-                </Textarea>
+                <Textarea name="body" className="resize-none h-40 mt-1" onChange={handleChangeTextArea} value={newsData.body} />
             </div>
             <div className="w-full px-2">
                 <AddImage />

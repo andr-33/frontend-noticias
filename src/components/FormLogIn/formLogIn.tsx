@@ -49,7 +49,6 @@ const FormLogIn: React.FC<Props> = ({ trigger, setTrigger }) => {
                 setIsWaiting(false);
                 sessionStorage.setItem("token", res.data.token);
                 navigate('/');
-                //setTimeout(() => setTrigger(true), 3000)
             })
             .catch(err => {
                 setMessage(err.data.message);
